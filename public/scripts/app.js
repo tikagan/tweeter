@@ -49,12 +49,25 @@ $( document ).ready(function() {
 //submits an async ajax request instead
   $('#submit-tweet').on('submit', function (event) {
     event.preventDefault()
+    const tweetContainer = $(this).closest('main')
+    let tweet = $(this).find('textarea').val()
+    if (tweet.length > 140) {
+      $(`<h3 class="error"> Tweet exceeds the character limit! </h3>`).prependTo(tweetContainer)
+      return
+    }
+    if (tweet === "" || tweet == null) {
+      $(`<h3 class="error"> Please write a tweet! </h3>`).prependTo(tweetContainer)
+      return
+    }
+    if (tweet.length < 140 && tweet !== null) {
+      $('.error').remove()
+    }
     //creating the newdata from the form
     let newTweet = $(this).serialize();
     //posting via ajax
-    $.post('/tweets/', newTweet, function(){
+    $.post('/tweets/', newTweet)
       .done(function(result) {
-      loadTweets()
+        loadTweets()
       })
       .fail(function(error) {
       console.error(error)
@@ -62,7 +75,6 @@ $( document ).ready(function() {
     })
     //on success reder all the tweets again
     // on failure error message
-  })
 
 
 //these are the closing brackets for $(doc).ready

@@ -1,5 +1,9 @@
 
 
+.container .error {
+  color: #e00000;
+  text-align: center;
+}
 
 .container .new-tweet {
   margin: 0 2em;
