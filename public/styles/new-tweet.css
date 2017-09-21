@@ -1,0 +1,44 @@
+
+
+
+.container .new-tweet {
+  margin: 0 2em;
+  border: 1.5px solid #aaa;
+  border-radius: 5px;
+  background-color: #eee;
+  padding: 8px;
+  height: auto;
+}
+
+.container .new-tweet form {
+  margin: 0 auto;
+  padding: 9px 1px 1px;
+}
+
+.container .new-tweet h2 {
+  margin: 0;
+  border-bottom: 1px solid black;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #006353;
+}
+
+.container .new-tweet .counter {
+  float: right;
+  font-style: italic;
+  font-size: 85%;
+}
+
+.container .new-tweet .under-count {
+  color: #006353;
+}
+
+.container .new-tweet .over-count {
+  color: #e00000;
+}
+
+.container .new-tweet textarea {
+  margin: 0;
+  padding: 4px;
+  width: 100%;
+}
