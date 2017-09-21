@@ -5,6 +5,8 @@
  */
 
 $( document ).ready(function() {
+//creates emtpy tweet element and inserts data taken
+// from inputted tweet object into html skeleton
   const createTweetElement = function (tweetObj) {
     const name = tweetObj.user.name
     const avatar = tweetObj.user.avatars.regular
@@ -27,15 +29,37 @@ $( document ).ready(function() {
     </article>`)
     $('#tweets').prepend(tweetSkeleton)
   }
-
+//for runs createTweetElement function  for each
+//object (index) in the array given
   const renderTweets = function (data) {
     data.forEach(function(tweetObj) {
       var $tweet = createTweetElement(tweetObj)
       $('#tweets').append($tweet)
     }
   )}
-  renderTweets(data)
+
+//prevents default post request on submit button
+//submits an async ajax request instead
+  $('#submit-tweet').on('submit', function (event) {
+    event.preventDefault()
+    //creating the newdata from the form
+    let newTweet = $(this).serialize();
+    //posting via ajax
+    $.post('/tweets/', newTweet, function(){
+      debugger
+    })
+    //on success reder all the tweets again
+    // on failure error message
+  })
+
+//these are the closing brackets for $(doc).ready
 })
+
+
+
+
+
+
 
 // Test / driver code (temporary). Eventually will get this from the server.
 var data = [
