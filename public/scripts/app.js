@@ -7,7 +7,8 @@ const createTweetElement = function (tweetObj) {
   const avatar = tweetObj.user.avatars.regular
   const handle = tweetObj.user.handle
   const text = (tweetObj.content.text).toString()
-  const created = (tweetObj.created_at/6000)
+  // const created = (tweetObj.created_at/6000)
+  const time = moment(tweetObj.created_at).fromNow();
   const tweetSkeleton = $(`<article class="tweet">
   <header>
   <img class="avatar" src="${avatar}">
@@ -16,7 +17,7 @@ const createTweetElement = function (tweetObj) {
   </header>
   <p> ${text} </p>
   <footer>
-  <p> ${created} </p>
+  <p> ${time} </p>
   <i class="fa fa-heart"></i>
   <i class="fa fa-retweet"></i>
   <i class="fa fa-flag"></i>
@@ -68,6 +69,7 @@ $( document ).ready(function() {
     $.post('/tweets/', newTweet)
       .done(function(result) {
         loadTweets()
+        $('.textarea').val('');
       })
       .fail(function(error) {
       console.error(error)
