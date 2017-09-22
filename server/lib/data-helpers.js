@@ -16,10 +16,6 @@ module.exports = function makeDataHelpers(db) {
         }
         callback(null, true)
       })
-      // simulateDelay(() => {
-        // db.tweets.push(newTweet);
-        // callback(null, true);
-      // })
     },
 
     // Get all tweets in `db`, sorted by newest first
@@ -31,10 +27,6 @@ module.exports = function makeDataHelpers(db) {
         }
         callback (null, documents)
       })
-      // simulateDelay(() => {
-      //   const sortNewestFirst = (a, b) => a.created_at - b.created_at;
-      //   callback(null, db.tweetArray.sort(sortNewestFirst));
-      // })
     }
   }
 }

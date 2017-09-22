@@ -44,14 +44,15 @@ const loadTweets = function(){
 }
 
 $( document ).ready(function() {
+//loads tweets each time the page is loaded and displays them in reverse chronological order
   loadTweets()
 
-//prevents default post request on submit button
-//submits an async ajax request instead
   $('#submit-tweet').on('submit', function (event) {
+    //prevents default post request on submit button
     event.preventDefault()
     const tweetContainer = $(this).closest('main')
     let tweet = $(this).find('textarea').val()
+//error catching for tweets that are too long or empty
     if (tweet.length > 140) {
       $(`<h3 class="error"> Tweet exceeds the character limit! </h3>`).prependTo(tweetContainer)
       return
@@ -63,29 +64,19 @@ $( document ).ready(function() {
     if (tweet.length < 140 && tweet !== null) {
       $('.error').remove()
     }
-    //creating the newdata from the form
-    let newTweet = $(this).serialize();
+//creating the newdata from text inputted into the textarea
+    let newTweet = $(this).serialize()
     //posting via ajax
     $.post('/tweets/', newTweet)
       .done(function(result) {
+        //adds new tweet to current page w ajax
         loadTweets()
-        $('.textarea').val('');
+        //clears textarea
+        $('.textarea').val('')
       })
       .fail(function(error) {
       console.error(error)
       })
     })
-    //on success reder all the tweets again
-    // on failure error message
-
-
 //these are the closing brackets for $(doc).ready
 })
-
-
-
-
-
-
-
-// Test / driver code (temporary). Eventually will get this from the server.
