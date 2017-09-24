@@ -16,7 +16,7 @@ This repository is the starter code for the project: Students will fork and clon
 - Express
 - Node 5.10.x or above
 
-##Screenshots
+## Screenshots
 
 !["Screenshot of compose tweet box"](https://github.com/tikagan/tweeter/blob/master/docs/tweets-compose-box-visible.png?raw=true)
 
