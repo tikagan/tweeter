@@ -15,9 +15,10 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+- MongoDB
 
 ## Screenshots
 
 !["Screenshot of compose tweet box"](https://github.com/tikagan/tweeter/blob/master/docs/tweets-compose-box-visible.png?raw=true)
 
-!["Screenshot of tweets with composo box hidden"](https://github.com/tikagan/tweeter/blob/master/docs/tweets-compose-box-hidden.png?raw=true)
+!["Screenshot of tweets with compose box hidden"](https://github.com/tikagan/tweeter/blob/master/docs/tweets-compose-box-hidden.png?raw=true)

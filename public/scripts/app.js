@@ -35,12 +35,16 @@ const renderTweets = function (data) {
   }
 )}
 
-const loadTweets = function(){
-  //make a ajax request to /tweets
-  $.get('/tweets', {}, renderTweets)
-    .fail(function(error) {
-      console.error(error)
-    })
+function loadTweets(){
+ $.ajax({
+   url: '/tweets',
+   method: 'GET',
+   success: function(res) {
+     console.log('res: ', res)
+     $('#tweet-container').empty()
+     renderTweets(res)
+   }
+ })
 }
 
 $( document ).ready(function() {
