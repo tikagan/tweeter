@@ -40,8 +40,7 @@ function loadTweets(){
    url: '/tweets',
    method: 'GET',
    success: function(res) {
-     console.log('res: ', res)
-     $('#tweet-container').empty()
+     $('#tweets').empty()
      renderTweets(res)
    }
  })
